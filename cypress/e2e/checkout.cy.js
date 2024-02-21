@@ -12,7 +12,9 @@ context('Funcionalidade: Compra e Checkout', () => {
     beforeEach('', () => {
         cy.visit('https://practice.automationtesting.in/shop')
     });
-   
+   afterEach('', () => {
+        cy.screenshot()
+   });
 
     it('Deve realizar o check-out e finalizar compra com sucesso', () => {
         cy.get('.post-169').click()
