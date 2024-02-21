@@ -17,7 +17,7 @@ context('Funcionalidade: Compra e Checkout', () => {
    });
 
     it('Deve realizar o check-out e finalizar compra com sucesso', () => {
-        
+
         cy.get('.post-169').click()
         cy.get('.input-text').clear().type(2)
         cy.get('.single_add_to_cart_button').click()
@@ -42,7 +42,7 @@ context('Funcionalidade: Compra e Checkout', () => {
 
     });
 
-    it.only('Deve exibir uma mensagem de alerta para dados inválidos', () => {
+    it('Deve exibir uma mensagem de alerta para dados inválidos', () => {
 
         cy.get('.post-170').click()
         cy.get('.input-text').clear().type(2)
