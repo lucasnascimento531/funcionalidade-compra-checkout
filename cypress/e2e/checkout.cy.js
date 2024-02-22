@@ -1,8 +1,8 @@
 ///<reference types="cypress"/>
 
-    const perfil = require ('../fixtures/perfil.json')
+const perfil = require ('../fixtures/perfil.json')
 
-
+    
 
     context('Funcionalidade: Compra e Checkout', () => {
     ///Como cliente
@@ -13,10 +13,14 @@
     beforeEach('', () => {
         cy.visit('https://practice.automationtesting.in/shop')
     });
-  
+  afterEach('', () => {
+    cy.screenshot()
+    video: true
+
+  });
 
     it('Deve realizar o check-out e finalizar compra com sucesso', () => {
-        
+
         cy.get('.post-169').click()
         cy.get('.input-text').clear().type(2)
         cy.get('.single_add_to_cart_button').click()
@@ -39,8 +43,7 @@
 
         cy.get('.woocommerce-thankyou-order-received').should('contain', 'Thank')
 
-        cy.screenshot()
-
+    
     });
 
     it('Deve exibir uma mensagem de alerta para dados inválidos', () => {
@@ -56,7 +59,7 @@
 
         cy.get('#place_order').click()
         cy.get('.woocommerce-error').should('contain', 'Billing')
-
-        cy.screenshot()
+        
+        
     });
 });
